@@ -2,11 +2,15 @@
 
 import { useRef, useEffect } from "react"
 import { motion } from "framer-motion"
+import { useSafeAnimation } from "@/hooks/use-safe-animation"
 
-export default function BackgroundParticles() {
+export default function SafeBackgroundParticles() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const canAnimate = useSafeAnimation(800) // Longer delay for background elements
 
   useEffect(() => {
+    if (!canAnimate) return
+
     const canvas = canvasRef.current
     if (!canvas) return
 
@@ -81,7 +85,6 @@ export default function BackgroundParticles() {
       animationFrameId = requestAnimationFrame(animate)
     }
 
-    // Fix: Add error handling for resize event
     try {
       window.addEventListener("resize", resizeCanvas)
       resizeCanvas()
@@ -94,14 +97,15 @@ export default function BackgroundParticles() {
       window.removeEventListener("resize", resizeCanvas)
       cancelAnimationFrame(animationFrameId)
     }
-  }, [])
+  }, [canAnimate])
 
+  // Always render the canvas, but only animate when safe
   return (
     <motion.canvas
       ref={canvasRef}
       className="absolute inset-0 z-0"
-      initial={{ opacity: 1 }} // Changed from 0 to 1 to ensure visibility
-      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: canAnimate ? 1 : 0 }}
       transition={{ duration: 1 }}
     />
   )

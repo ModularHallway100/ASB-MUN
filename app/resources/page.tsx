@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { FileText, Download, BookOpen, Video, FileQuestion, Globe } from "lucide-react"
+import { FileText, Download, BookOpen, Video, FileQuestion, Globe, Book } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -40,6 +40,13 @@ export default function ResourcesPage() {
         description: "How to draft and format UN resolutions",
         icon: <FileText className="h-8 w-8 text-slate-700" />,
         link: "/resources/resolution-guide.pdf",
+      },
+      {
+        id: 5,
+        title: "MUN Glossary",
+        description: "Complete glossary of Model UN terms and definitions",
+        icon: <Book className="h-8 w-8 text-orange-500" />,
+        link: "/resources/glossary",
       },
     ],
     templates: [
@@ -126,6 +133,26 @@ export default function ResourcesPage() {
           </p>
         </div>
 
+        {/* Featured Glossary Section */}
+        <div className="mb-12">
+          <Card className="bg-gradient-to-r from-orange-50 to-orange-100 border-orange-200 hover:shadow-lg transition-all duration-300">
+            <CardHeader className="text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-500 rounded-2xl mb-4 mx-auto">
+                <Book className="h-8 w-8 text-white" />
+              </div>
+              <CardTitle className="text-2xl">Model UN Glossary</CardTitle>
+              <CardDescription className="text-lg">
+                Your complete reference for all MUN terminology and specialized terms
+              </CardDescription>
+            </CardHeader>
+            <CardFooter className="justify-center">
+              <Button size="lg" asChild className="bg-orange-500 hover:bg-orange-600">
+                <Link href="/resources/glossary">Explore Glossary</Link>
+              </Button>
+            </CardFooter>
+          </Card>
+        </div>
+
         <Tabs defaultValue="guides" className="w-full">
           <TabsList className="grid w-full grid-cols-2 md:grid-cols-4">
             <TabsTrigger value="guides">Guides & Handbooks</TabsTrigger>
@@ -135,9 +162,9 @@ export default function ResourcesPage() {
           </TabsList>
 
           <TabsContent value="guides" className="mt-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {resources.guides.map((resource) => (
-                <Card key={resource.id} className="flex flex-col h-full">
+                <Card key={resource.id} className="flex flex-col h-full hover:shadow-md transition-all duration-300">
                   <CardHeader>
                     <div className="flex justify-center mb-4">{resource.icon}</div>
                     <CardTitle className="text-center">{resource.title}</CardTitle>
@@ -145,7 +172,9 @@ export default function ResourcesPage() {
                   </CardHeader>
                   <CardFooter className="mt-auto pt-4">
                     <Button className="w-full" asChild>
-                      <Link href={resource.link}>Download PDF</Link>
+                      <Link href={resource.link}>
+                        {resource.title === "MUN Glossary" ? "View Glossary" : "Download PDF"}
+                      </Link>
                     </Button>
                   </CardFooter>
                 </Card>

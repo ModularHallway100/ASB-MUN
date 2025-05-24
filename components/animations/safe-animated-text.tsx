@@ -1,15 +1,22 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useSafeAnimation } from "@/hooks/use-safe-animation"
 
 interface AnimatedTextProps {
   text: string
   className?: string
-  once?: boolean
   delay?: number
+  fallbackClassName?: string
 }
 
-export default function AnimatedText({ text, className = "", once = true, delay = 0 }: AnimatedTextProps) {
+export default function SafeAnimatedText({
+  text,
+  className = "",
+  delay = 0,
+  fallbackClassName = "",
+}: AnimatedTextProps) {
+  const canAnimate = useSafeAnimation(300)
   const words = text.split(" ")
 
   const container = {
@@ -41,14 +48,18 @@ export default function AnimatedText({ text, className = "", once = true, delay 
     },
   }
 
-  // Fix: Set initial to visible to ensure text is always shown
+  // If animations aren't ready yet, render plain text
+  if (!canAnimate) {
+    return <h2 className={`${className} ${fallbackClassName}`}>{text}</h2>
+  }
+
   return (
     <motion.div
       className={`overflow-hidden inline-flex flex-wrap ${className}`}
       variants={container}
-      initial="visible" // Changed from "hidden" to "visible"
-      whileInView="visible"
-      viewport={{ once }}
+      initial="hidden"
+      animate="visible"
+      viewport={{ once: true }}
     >
       {words.map((word, index) => (
         <motion.span key={index} className="inline-block mr-1" variants={child}>
