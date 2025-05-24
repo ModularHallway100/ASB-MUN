@@ -41,12 +41,11 @@ export default function AnimatedText({ text, className = "", once = true, delay 
     },
   }
 
-  // Fix: Set initial to visible to ensure text is always shown
   return (
     <motion.div
       className={`overflow-hidden inline-flex flex-wrap ${className}`}
       variants={container}
-      initial="visible" // Changed from "hidden" to "visible"
+      initial="hidden"
       whileInView="visible"
       viewport={{ once }}
     >

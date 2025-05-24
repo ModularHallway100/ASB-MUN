@@ -17,7 +17,6 @@ export default function BackgroundParticles() {
     let particles: Particle[] = []
 
     const resizeCanvas = () => {
-      if (!canvas) return
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
       createParticles()
@@ -52,7 +51,6 @@ export default function BackgroundParticles() {
       }
 
       draw() {
-        if (!ctx) return
         ctx.fillStyle = this.color
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
@@ -62,7 +60,7 @@ export default function BackgroundParticles() {
 
     const createParticles = () => {
       particles = []
-      const particleCount = Math.min(100, Math.floor((canvas.width * canvas.height) / 10000))
+      const particleCount = Math.floor((canvas.width * canvas.height) / 10000)
 
       for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle())
@@ -70,7 +68,6 @@ export default function BackgroundParticles() {
     }
 
     const animate = () => {
-      if (!ctx || !canvas) return
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       for (let i = 0; i < particles.length; i++) {
@@ -81,14 +78,9 @@ export default function BackgroundParticles() {
       animationFrameId = requestAnimationFrame(animate)
     }
 
-    // Fix: Add error handling for resize event
-    try {
-      window.addEventListener("resize", resizeCanvas)
-      resizeCanvas()
-      animate()
-    } catch (error) {
-      console.error("Error initializing particles:", error)
-    }
+    window.addEventListener("resize", resizeCanvas)
+    resizeCanvas()
+    animate()
 
     return () => {
       window.removeEventListener("resize", resizeCanvas)
@@ -100,7 +92,7 @@ export default function BackgroundParticles() {
     <motion.canvas
       ref={canvasRef}
       className="absolute inset-0 z-0"
-      initial={{ opacity: 1 }} // Changed from 0 to 1 to ensure visibility
+      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     />

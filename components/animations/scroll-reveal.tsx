@@ -36,11 +36,10 @@ export default function ScrollReveal({
     }
   }
 
-  // Fix: Always render content with initial visibility
   return (
     <motion.div
       ref={ref}
-      initial="visible" // Changed from "hidden" to "visible" to ensure content is always visible
+      initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={getDirectionVariants()}
       transition={{ duration: 0.6, delay, ease: "easeOut" }}
