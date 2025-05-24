@@ -14,6 +14,14 @@ export default function ResourcesPage() {
   const resources = {
     guides: [
       {
+        id: 0,
+        title: "MUN Glossary",
+        description: "Complete dictionary of Model UN terms and procedures",
+        icon: <BookOpen className="h-8 w-8 text-orange-600" />,
+        link: "/resources/glossary",
+        featured: true,
+      },
+      {
         id: 1,
         title: "Delegate Handbook",
         description: "A comprehensive guide for delegates participating in GMUN 2025",
@@ -137,15 +145,30 @@ export default function ResourcesPage() {
           <TabsContent value="guides" className="mt-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {resources.guides.map((resource) => (
-                <Card key={resource.id} className="flex flex-col h-full">
+                <Card
+                  key={resource.id}
+                  className={`flex flex-col h-full ${resource.featured ? "ring-2 ring-orange-500 bg-orange-50" : ""}`}
+                >
                   <CardHeader>
                     <div className="flex justify-center mb-4">{resource.icon}</div>
                     <CardTitle className="text-center">{resource.title}</CardTitle>
                     <CardDescription className="text-center">{resource.description}</CardDescription>
+                    {resource.featured && (
+                      <div className="text-center">
+                        <span className="inline-block bg-orange-500 text-white text-xs px-2 py-1 rounded-full">
+                          Featured
+                        </span>
+                      </div>
+                    )}
                   </CardHeader>
                   <CardFooter className="mt-auto pt-4">
-                    <Button className="w-full" asChild>
-                      <Link href={resource.link}>Download PDF</Link>
+                    <Button
+                      className={`w-full ${resource.featured ? "bg-orange-600 hover:bg-orange-700" : ""}`}
+                      asChild
+                    >
+                      <Link href={resource.link}>
+                        {resource.link.includes(".pdf") ? "Download PDF" : "Access Resource"}
+                      </Link>
                     </Button>
                   </CardFooter>
                 </Card>
