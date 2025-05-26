@@ -14,7 +14,7 @@ import { toast } from "@/components/ui/use-toast"
 import { motion, AnimatePresence } from "framer-motion"
 
 interface RegistrationFormProps {
-  type: "delegate" | "advisor" | "observer"
+  type: "delegate" | "chair"
 }
 
 export default function RegistrationForm({ type }: RegistrationFormProps) {
@@ -49,10 +49,14 @@ export default function RegistrationForm({ type }: RegistrationFormProps) {
         message: "Please select your experience level.",
       }),
     }),
-    ...(type === "advisor" && {
-      delegationSize: z.string().min(1, {
-        message: "Please enter your delegation size.",
+    ...(type === "chair" && {
+      preferredCommittee: z.string().min(1, {
+        message: "Please select your preferred committee to chair.",
       }),
+      chairingExperience: z.string().min(1, {
+        message: "Please select your chairing experience level.",
+      }),
+      leadershipExperience: z.string().optional(),
     }),
     dietaryRestrictions: z.string().optional(),
     termsAccepted: z.boolean().refine((val) => val === true, {
@@ -74,8 +78,10 @@ export default function RegistrationForm({ type }: RegistrationFormProps) {
         committee: "",
         experience: "",
       }),
-      ...(type === "advisor" && {
-        delegationSize: "",
+      ...(type === "chair" && {
+        preferredCommittee: "",
+        chairingExperience: "",
+        leadershipExperience: "",
       }),
       dietaryRestrictions: "",
       termsAccepted: false,
@@ -92,7 +98,7 @@ export default function RegistrationForm({ type }: RegistrationFormProps) {
       setIsSubmitting(false)
       toast({
         title: "Registration submitted",
-        description: "Thank you for registering for GMUN 2025. You will receive a confirmation email shortly.",
+        description: `Thank you for registering as a ${type} for GMUN 2025. You will receive a confirmation email shortly.`,
       })
       form.reset()
       setFormStep(0)
@@ -107,7 +113,7 @@ export default function RegistrationForm({ type }: RegistrationFormProps) {
             "institution",
             "country",
             ...(type === "delegate" ? ["committee", "experience"] : []),
-            ...(type === "advisor" ? ["delegationSize"] : []),
+            ...(type === "chair" ? ["preferredCommittee", "chairingExperience"] : []),
           ]
 
     const isValid = await form.trigger(fields as any)
@@ -307,23 +313,81 @@ export default function RegistrationForm({ type }: RegistrationFormProps) {
                   </div>
                 )}
 
-                {type === "advisor" && (
-                  <FormField
-                    control={form.control}
-                    name="delegationSize"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Delegation Size</FormLabel>
-                        <FormControl>
-                          <Input type="number" placeholder="Number of delegates" {...field} />
-                        </FormControl>
-                        <FormDescription>
-                          Please indicate the number of delegates you will be accompanying.
-                        </FormDescription>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                {type === "chair" && (
+                  <>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="preferredCommittee"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Preferred Committee to Chair</FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Select a committee" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                <SelectItem value="unsc">UN Security Council</SelectItem>
+                                <SelectItem value="who">World Health Organization</SelectItem>
+                                <SelectItem value="hrc">Human Rights Council</SelectItem>
+                                <SelectItem value="ga">General Assembly</SelectItem>
+                                <SelectItem value="ecosoc">Economic and Social Council</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="chairingExperience"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Chairing Experience</FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Select your chairing experience" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                <SelectItem value="first-time">First-time Chair</SelectItem>
+                                <SelectItem value="some-experience">Some Experience (1-3 conferences)</SelectItem>
+                                <SelectItem value="experienced">Experienced (4+ conferences)</SelectItem>
+                                <SelectItem value="expert">Expert Chair (10+ conferences)</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <FormField
+                      control={form.control}
+                      name="leadershipExperience"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Leadership Experience (Optional)</FormLabel>
+                          <FormControl>
+                            <Textarea
+                              placeholder="Describe any relevant leadership experience, awards, or qualifications"
+                              className="resize-none"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormDescription>
+                            Please share any leadership roles, MUN awards, or relevant qualifications that make you
+                            suitable for chairing.
+                          </FormDescription>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </>
                 )}
 
                 <FormField

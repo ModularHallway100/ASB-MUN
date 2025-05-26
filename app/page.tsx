@@ -33,8 +33,8 @@ export default function Home() {
   const featuredPosts = [
     {
       id: 1,
-      title: "Registration Now Open for MUN 2025",
-      excerpt: "Early bird registration is now available for delegates and advisors.",
+      title: "Registration Now Open for ASBMUN",
+      excerpt: "Early bird registration is now available for delegates and chairs.",
       date: "May 10, 2025",
       image: "/placeholder.svg?height=200&width=300",
       slug: "registration-open",
@@ -51,35 +51,102 @@ export default function Home() {
 
   return (
     <main className="flex-1">
-      {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/placeholder.svg?height=1080&width=1920"
-            alt="MUN Conference"
-            fill
-            className="object-cover brightness-50"
-            priority
-          />
+      {/* Hero Section with ASBMUN Logo */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-blue-200 rounded-full opacity-20 animate-float"></div>
+          <div className="absolute top-40 right-20 w-24 h-24 bg-indigo-200 rounded-full opacity-30 animate-pulse-custom"></div>
+          <div
+            className="absolute bottom-32 left-1/4 w-40 h-40 bg-slate-200 rounded-full opacity-15 animate-float"
+            style={{ animationDelay: "2s" }}
+          ></div>
+          <div className="absolute bottom-20 right-1/3 w-28 h-28 bg-blue-300 rounded-full opacity-25 animate-breathe"></div>
         </div>
-        <div className="container relative z-10 mx-auto px-4 text-center text-white">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">Global Model United Nations 2025</h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            Join delegates from around the world to debate, negotiate, and solve global challenges
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/register"
-              className="inline-flex items-center justify-center rounded-md bg-white px-8 py-3 text-base font-medium text-slate-900 hover:bg-slate-100 transition-colors"
+
+        <div className="container relative z-10 mx-auto px-4 text-center">
+          {/* ASBMUN Logo - Primary Visual Element */}
+          <div className="mb-8 flex justify-center">
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 rounded-full opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-500 animate-pulse-custom"></div>
+              <div className="relative bg-white/80 backdrop-blur-sm rounded-full p-8 shadow-2xl border border-white/20 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/asbmun-logo.jpg"
+                  alt="ASBMUN - The Asian School Model United Nations"
+                  width={400}
+                  height={400}
+                  className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain animate-float"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Hero Content */}
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-slate-800 via-blue-800 to-indigo-800 bg-clip-text text-transparent animate-slide-in-up">
+              ASBMUN
+            </h1>
+            <h2
+              className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 text-slate-700 animate-slide-in-up"
+              style={{ animationDelay: "0.1s" }}
             >
-              Register Now
-            </Link>
-            <Link
-              href="/committees"
-              className="inline-flex items-center justify-center rounded-md border border-white bg-transparent px-8 py-3 text-base font-medium text-white hover:bg-white hover:text-black transition-colors"
+              The Asian School Model United Nations
+            </h2>
+            <p
+              className="text-xl md:text-2xl lg:text-3xl mb-8 text-slate-700 max-w-3xl mx-auto leading-relaxed animate-slide-in-up"
+              style={{ animationDelay: "0.2s" }}
             >
-              View Committees
-            </Link>
+              Join delegates from around the world to debate, negotiate, and solve global challenges
+            </p>
+
+            {/* Enhanced CTA Buttons */}
+            <div
+              className="flex flex-col sm:flex-row gap-6 justify-center animate-slide-in-up"
+              style={{ animationDelay: "0.4s" }}
+            >
+              <Link
+                href="/register"
+                className="group relative inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden"
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-blue-700 to-indigo-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <span className="relative flex items-center gap-2">
+                  Register Now
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
+              </Link>
+              <Link
+                href="/committees"
+                className="group inline-flex items-center justify-center rounded-xl border-2 border-slate-300 bg-white/80 backdrop-blur-sm px-8 py-4 text-lg font-semibold text-slate-800 hover:bg-slate-50 hover:border-slate-400 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                <span className="flex items-center gap-2">
+                  View Committees
+                  <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Conference Details Cards */}
+          <div
+            className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto animate-slide-in-up"
+            style={{ animationDelay: "0.6s" }}
+          >
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <Calendar className="w-8 h-8 text-blue-600 mx-auto mb-3" />
+              <h3 className="font-semibold text-slate-800 mb-2">Conference Dates</h3>
+              <p className="text-slate-600">July 15-18, 2025</p>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <MapPin className="w-8 h-8 text-indigo-600 mx-auto mb-3" />
+              <h3 className="font-semibold text-slate-800 mb-2">Location</h3>
+              <p className="text-slate-600">The Asian School, New Delhi</p>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <Users className="w-8 h-8 text-purple-600 mx-auto mb-3" />
+              <h3 className="font-semibold text-slate-800 mb-2">Expected Attendance</h3>
+              <p className="text-slate-600">500+ delegates from 50+ countries</p>
+            </div>
           </div>
         </div>
       </section>
@@ -94,8 +161,8 @@ export default function Home() {
             <div>
               <h2 className="text-3xl font-bold mb-6">Join Us This Summer</h2>
               <p className="text-slate-600 mb-8">
-                Our annual Model United Nations conference brings together students from around the world to discuss
-                pressing global issues, develop solutions through diplomacy, and build lasting connections.
+                ASBMUN brings together students from around the world to discuss pressing global issues, develop
+                solutions through diplomacy, and build lasting connections at The Asian School.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3 group">
@@ -104,7 +171,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-3 group">
                   <MapPin className="h-6 w-6 text-slate-700" />
-                  <span>International Convention Center, New York</span>
+                  <span>The Asian School, New Delhi</span>
                 </div>
                 <div className="flex items-center gap-3 group">
                   <Users className="h-6 w-6 text-slate-700" />
@@ -116,7 +183,7 @@ export default function Home() {
                   href="/about"
                   className="inline-flex items-center text-slate-800 font-medium hover:text-slate-600"
                 >
-                  Learn more about our conference
+                  Learn more about ASBMUN
                   <ChevronRight className="ml-1 h-4 w-4" />
                 </Link>
               </div>
@@ -241,7 +308,7 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Latest Updates</h2>
             <p className="text-slate-600 max-w-2xl mx-auto mb-8">
-              Stay informed with the latest news and announcements about our conference
+              Stay informed with the latest news and announcements about ASBMUN
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -285,9 +352,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 to-slate-800"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-3xl font-bold mb-4">Ready to Join the Diplomatic Community?</h2>
-          <p className="text-slate-300 max-w-2xl mx-auto mb-8">
-            Register today to secure your spot at the Global Model United Nations 2025
-          </p>
+          <p className="text-slate-300 max-w-2xl mx-auto mb-8">Register today to secure your spot at ASBMUN</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/register"

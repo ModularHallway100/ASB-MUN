@@ -77,7 +77,7 @@ export default function Header() {
             transition={{ duration: 0.5 }}
           >
             <Link href="/" className="flex items-center">
-              <span className="text-xl font-bold text-slate-800">GMUN 2025</span>
+              <span className="text-xl font-bold text-slate-800">ASBMUN</span>
             </Link>
           </motion.div>
 

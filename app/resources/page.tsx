@@ -5,8 +5,8 @@ import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/comp
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export const metadata = {
-  title: "Resources | Global Model United Nations 2025",
-  description: "Access resources for the Global Model United Nations Conference 2025",
+  title: "Resources | ASBMUN - The Asian School Model United Nations",
+  description: "Access resources for ASBMUN - The Asian School Model United Nations Conference",
 }
 
 export default function ResourcesPage() {
@@ -24,14 +24,14 @@ export default function ResourcesPage() {
       {
         id: 1,
         title: "Delegate Handbook",
-        description: "A comprehensive guide for delegates participating in GMUN 2025",
+        description: "A comprehensive guide for delegates participating in ASBMUN",
         icon: <FileText className="h-8 w-8 text-slate-700" />,
         link: "/resources/delegate-handbook.pdf",
       },
       {
         id: 2,
         title: "Rules of Procedure",
-        description: "Official rules of procedure for all committees at GMUN 2025",
+        description: "Official rules of procedure for all committees at ASBMUN",
         icon: <BookOpen className="h-8 w-8 text-slate-700" />,
         link: "/resources/rules-of-procedure.pdf",
       },
@@ -130,7 +130,7 @@ export default function ResourcesPage() {
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Resources</h1>
           <p className="text-slate-600 max-w-2xl mx-auto">
-            Access guides, templates, and training materials to help you prepare for GMUN 2025
+            Access guides, templates, and training materials to help you prepare for ASBMUN
           </p>
         </div>
 
@@ -265,7 +265,7 @@ export default function ResourcesPage() {
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-semibold">How can I prepare for the conference?</h3>
+                  <h3 className="font-semibold">How can I prepare for ASBMUN?</h3>
                   <p className="text-slate-600">
                     Research your country's position, practice public speaking, review the rules of procedure, and
                     familiarize yourself with parliamentary procedure.
@@ -284,7 +284,7 @@ export default function ResourcesPage() {
                 <h3 className="text-xl font-bold">Need Help?</h3>
               </div>
               <p className="text-slate-600 mb-6">
-                Can't find what you're looking for? Our team is here to help you prepare for the conference.
+                Can't find what you're looking for? Our team is here to help you prepare for ASBMUN.
               </p>
               <div className="space-y-4">
                 <Button className="w-full" asChild>

@@ -188,9 +188,9 @@ export default function GalleryPage() {
           <TabsContent value="photos" className="mt-6">
             <Tabs defaultValue="2024">
               <TabsList className="mb-6">
-                <TabsTrigger value="2024">GMUN 2024</TabsTrigger>
-                <TabsTrigger value="2023">GMUN 2023</TabsTrigger>
-                <TabsTrigger value="2022">GMUN 2022</TabsTrigger>
+                <TabsTrigger value="2024">ASBMUN 2024</TabsTrigger>
+                <TabsTrigger value="2023">ASBMUN 2023</TabsTrigger>
+                <TabsTrigger value="2022">ASBMUN 2022</TabsTrigger>
               </TabsList>
 
               <TabsContent value="2024">

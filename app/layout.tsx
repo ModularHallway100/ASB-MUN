@@ -9,8 +9,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Global Model United Nations 2025",
-  description: "Join delegates from around the world for the Global Model United Nations Conference 2025",
+  title: "ASBMUN - The Asian School Model United Nations",
+  description: "Join delegates from around the world for ASBMUN - The Asian School Model United Nations Conference",
     generator: 'v0.dev'
 }
 

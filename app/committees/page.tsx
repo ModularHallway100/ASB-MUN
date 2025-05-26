@@ -6,8 +6,8 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export const metadata = {
-  title: "Committees | Global Model United Nations 2025",
-  description: "Explore the committees at the Global Model United Nations Conference 2025",
+  title: "Committees | ASBMUN - The Asian School Model United Nations",
+  description: "Explore the committees at ASBMUN - The Asian School Model United Nations Conference",
 }
 
 export default function CommitteesPage() {

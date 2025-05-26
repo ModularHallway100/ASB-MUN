@@ -189,7 +189,7 @@ export default function WhyJoinSection() {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className={`text-center mb-16 ${isVisible ? "slide-in" : "opacity-0"}`}>
-            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 pulse-animation">WHY JOIN GMUN?</h2>
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 pulse-animation">WHY JOIN ASBMUN?</h2>
             <p className="text-xl text-blue-100 max-w-4xl mx-auto">
               Transform your future through diplomacy, leadership, and global engagement
             </p>
