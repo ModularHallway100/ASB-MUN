@@ -92,10 +92,10 @@ export default function WhyJoinSection() {
         
         @keyframes glow {
           0%, 100% { 
-            box-shadow: 0 0 10px rgba(255, 128, 0, 0.3);
+            box-shadow: 0 0 10px hsla(var(--accent), 0.3);
           }
           50% { 
-            box-shadow: 0 0 25px rgba(255, 128, 0, 0.7);
+            box-shadow: 0 0 25px hsla(var(--accent), 0.7);
           }
         }
         
@@ -153,7 +153,7 @@ export default function WhyJoinSection() {
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+          background: linear-gradient(90deg, transparent, hsla(var(--foreground), 0.2), transparent);
           animation: shimmerMove 3s ease-in-out infinite;
           transform: skewX(-15deg);
         }
@@ -176,20 +176,20 @@ export default function WhyJoinSection() {
 
       <section
         ref={sectionRef}
-        className="py-20 bg-gradient-to-br from-asbmun-black via-asbmun-black to-asbmun-black/90 relative overflow-hidden"
+        className="py-20 bg-background relative overflow-hidden" // Use bg-background
       >
         {/* Animated background elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-32 h-32 bg-asbmun-mocha rounded-full opacity-10 float-animation"></div>
-          <div className="absolute bottom-20 right-20 w-24 h-24 bg-asbmun-orange rounded-full opacity-10 float-delayed"></div>
-          <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-asbmun-mocha rounded-full opacity-10 float-delayed-2"></div>
-          <div className="absolute top-1/4 right-1/4 w-20 h-20 bg-asbmun-orange rounded-full opacity-10 float-delayed-3"></div>
+          <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full opacity-10 float-animation"></div>
+          <div className="absolute bottom-20 right-20 w-24 h-24 bg-accent/10 rounded-full opacity-10 float-delayed"></div>
+          <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-primary/10 rounded-full opacity-10 float-delayed-2"></div>
+          <div className="absolute top-1/4 right-1/4 w-20 h-20 bg-accent/10 rounded-full opacity-10 float-delayed-3"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className={`text-center mb-16 ${isVisible ? "slide-in" : "opacity-0"}`}>
-            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 pulse-animation">WHY JOIN ASBMUN?</h2>
-            <p className="text-xl text-asbmun-mocha max-w-4xl mx-auto">
+            <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 pulse-animation">WHY JOIN ASBMUN?</h2>
+            <p className="text-xl text-primary max-w-4xl mx-auto"> {/* text-asbmun-mocha to text-primary */}
               Transform your future through diplomacy, leadership, and global engagement
             </p>
           </div>
@@ -197,7 +197,7 @@ export default function WhyJoinSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {/* Leadership Skills Card */}
             <div
-              className={`bg-white rounded-3xl p-8 shadow-2xl card-hover float-animation relative overflow-hidden ${isVisible ? "slide-in stagger-1" : "opacity-0"}`}
+              className={`bg-card rounded-3xl p-8 shadow-2xl card-hover float-animation relative overflow-hidden text-card-foreground ${isVisible ? "slide-in stagger-1" : "opacity-0"}`} // bg-white to bg-card, add text-card-foreground
             >
               <div className="shimmer-overlay"></div>
 
@@ -207,14 +207,14 @@ export default function WhyJoinSection() {
                   <div
                     key={i}
                     className={`w-4 h-4 rounded-full transition-all duration-300 ${
-                      i === 11 ? "bg-asbmun-orange glow-effect" : "bg-asbmun-mocha/30"
+                      i === 11 ? "bg-accent glow-effect" : "bg-primary/30" // bg-asbmun-orange to bg-accent, bg-asbmun-mocha/30 to bg-primary/30
                     } dot-pulse`}
                     style={{ animationDelay: `${i * 0.1}s` }}
                   />
                 ))}
               </div>
 
-              <h3 className="text-3xl font-bold text-asbmun-black leading-tight">
+              <h3 className="text-3xl font-bold leading-tight"> {/* text-asbmun-black removed, inherits text-card-foreground */}
                 DEVELOP
                 <br />
                 LEADERSHIP
@@ -225,7 +225,7 @@ export default function WhyJoinSection() {
 
             {/* Public Speaking Card */}
             <div
-              className={`bg-gradient-to-br from-asbmun-mocha to-asbmun-mocha/80 rounded-3xl p-8 shadow-2xl card-hover float-delayed text-white relative overflow-hidden ${isVisible ? "slide-in stagger-2" : "opacity-0"}`}
+              className={`bg-gradient-to-br from-primary to-primary/80 rounded-3xl p-8 shadow-2xl card-hover float-delayed text-primary-foreground relative overflow-hidden ${isVisible ? "slide-in stagger-2" : "opacity-0"}`} // from-asbmun-mocha to from-primary, text-white to text-primary-foreground
             >
               <div className="shimmer-overlay"></div>
 
@@ -242,7 +242,7 @@ export default function WhyJoinSection() {
                 {[...Array(42)].map((_, i) => (
                   <div
                     key={i}
-                    className="w-4 h-2 bg-white rounded-full opacity-60 oval-float"
+                    className="w-4 h-2 bg-primary-foreground/70 rounded-full opacity-60 oval-float" // bg-white to bg-primary-foreground/70
                     style={{ animationDelay: `${(i * 0.05) % 2}s` }}
                   />
                 ))}
@@ -251,11 +251,11 @@ export default function WhyJoinSection() {
 
             {/* Debate Skills Card */}
             <div
-              className={`bg-white rounded-3xl p-8 shadow-2xl card-hover float-delayed-2 relative overflow-hidden ${isVisible ? "slide-in stagger-3" : "opacity-0"}`}
+              className={`bg-card rounded-3xl p-8 shadow-2xl card-hover float-delayed-2 relative overflow-hidden text-card-foreground ${isVisible ? "slide-in stagger-3" : "opacity-0"}`} // bg-white to bg-card, add text-card-foreground
             >
               <div className="shimmer-overlay"></div>
 
-              <h3 className="text-3xl font-bold text-asbmun-black mb-8 leading-tight">
+              <h3 className="text-3xl font-bold mb-8 leading-tight"> {/* text-asbmun-black removed */}
                 BUILD
                 <br />
                 DEBATE
@@ -269,34 +269,34 @@ export default function WhyJoinSection() {
                   <div className="flex space-x-4 wave-animation">
                     {/* Person 1 */}
                     <div className="relative">
-                      <div className="w-16 h-20 bg-gradient-to-b from-asbmun-orange to-asbmun-orange/80 rounded-t-full"></div>
-                      <div className="w-4 h-4 bg-asbmun-orange/70 rounded-full absolute top-0 left-6 breathe-animation"></div>
+                      <div className="w-16 h-20 bg-gradient-to-b from-accent to-accent/80 rounded-t-full"></div> {/* from-asbmun-orange to from-accent */}
+                      <div className="w-4 h-4 bg-accent/70 rounded-full absolute top-0 left-6 breathe-animation"></div> {/* bg-asbmun-orange/70 to bg-accent/70 */}
                     </div>
 
                     {/* Person 2 */}
                     <div className="relative">
-                      <div className="w-16 h-20 bg-gradient-to-b from-asbmun-mocha to-asbmun-mocha/80 rounded-t-full"></div>
+                      <div className="w-16 h-20 bg-gradient-to-b from-primary to-primary/80 rounded-t-full"></div> {/* from-asbmun-mocha to from-primary */}
                       <div
-                        className="w-4 h-4 bg-asbmun-mocha/70 rounded-full absolute top-0 left-6 breathe-animation"
+                        className="w-4 h-4 bg-primary/70 rounded-full absolute top-0 left-6 breathe-animation" // bg-asbmun-mocha/70 to bg-primary/70
                         style={{ animationDelay: "0.5s" }}
                       ></div>
                     </div>
                   </div>
 
                   {/* Speech bubbles */}
-                  <div className="absolute -top-8 -left-4 w-6 h-4 bg-white rounded-full opacity-80 float-animation"></div>
-                  <div className="absolute -top-6 right-2 w-4 h-3 bg-white rounded-full opacity-80 float-delayed"></div>
+                  <div className="absolute -top-8 -left-4 w-6 h-4 bg-card-foreground/80 rounded-full opacity-80 float-animation"></div> {/* bg-white to bg-card-foreground/80 */}
+                  <div className="absolute -top-6 right-2 w-4 h-3 bg-card-foreground/80 rounded-full opacity-80 float-delayed"></div> {/* bg-white to bg-card-foreground/80 */}
                 </div>
               </div>
             </div>
 
             {/* Global Issues Card */}
             <div
-              className={`bg-white rounded-3xl p-8 shadow-2xl card-hover float-delayed-3 relative overflow-hidden ${isVisible ? "slide-in stagger-4" : "opacity-0"}`}
+              className={`bg-card rounded-3xl p-8 shadow-2xl card-hover float-delayed-3 relative overflow-hidden text-card-foreground ${isVisible ? "slide-in stagger-4" : "opacity-0"}`} // bg-white to bg-card, add text-card-foreground
             >
               <div className="shimmer-overlay"></div>
 
-              <h3 className="text-3xl font-bold text-asbmun-black mb-6 leading-tight">
+              <h3 className="text-3xl font-bold mb-6 leading-tight"> {/* text-asbmun-black removed */}
                 LEARN
                 <br />
                 ABOUT

@@ -66,7 +66,7 @@ export default function Header() {
       variants={headerVariants}
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
-        scrolled ? "bg-asbmun-black/90 backdrop-blur-md shadow-md" : "bg-asbmun-black",
+        scrolled ? "bg-background/90 backdrop-blur-md shadow-md" : "bg-background", // Use bg-background
       )}
     >
       <div className="container mx-auto px-4">
@@ -86,7 +86,7 @@ export default function Header() {
                   className="object-contain"
                 />
               </div>
-              <span className="text-xl font-bold text-white">ASBMUN</span>
+              <span className="text-xl font-bold text-foreground">ASBMUN</span> {/* text-white to text-foreground */}
             </Link>
           </motion.div>
 
@@ -97,14 +97,14 @@ export default function Header() {
                 <Link
                   href={item.href}
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-asbmun-orange relative group",
-                    pathname === item.href ? "text-asbmun-orange" : "text-white",
+                    "text-sm font-medium transition-colors hover:text-accent relative group", // hover:text-asbmun-orange to hover:text-accent
+                    pathname === item.href ? "text-accent" : "text-foreground", // text-asbmun-orange to text-accent, text-white to text-foreground
                   )}
                 >
                   {item.name}
                   <span
                     className={cn(
-                      "absolute -bottom-1 left-0 w-0 h-0.5 bg-asbmun-orange transition-all duration-300 group-hover:w-full",
+                      "absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full", // bg-asbmun-orange to bg-accent
                       pathname === item.href ? "w-full" : "w-0",
                     )}
                   ></span>
@@ -114,11 +114,11 @@ export default function Header() {
             <motion.div custom={navigation.length} initial="hidden" animate="visible" variants={navItemVariants}>
               <Button
                 asChild
-                className="bg-asbmun-orange hover:bg-asbmun-orange/90 text-asbmun-black relative overflow-hidden group"
+                className="bg-accent hover:bg-accent/90 text-accent-foreground relative overflow-hidden group" // Use theme variables
               >
                 <Link href="/register">
                   <span className="relative z-10">Register</span>
-                  <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                  <span className="absolute inset-0 bg-accent-foreground/10 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span> {/* bg-white to bg-accent-foreground/10 */}
                 </Link>
               </Button>
             </motion.div>
@@ -136,7 +136,7 @@ export default function Header() {
               size="icon"
               onClick={toggleMenu}
               aria-label="Toggle menu"
-              className="text-white hover:text-asbmun-orange"
+              className="text-foreground hover:text-accent" // text-white to text-foreground, hover:text-asbmun-orange to hover:text-accent
             >
               <AnimatePresence mode="wait">
                 {isMenuOpen ? (
@@ -170,7 +170,7 @@ export default function Header() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="md:hidden bg-asbmun-black"
+            className="md:hidden bg-background" // bg-asbmun-black to bg-background
             initial="closed"
             animate="open"
             exit="closed"
@@ -188,7 +188,7 @@ export default function Header() {
                     href={item.href}
                     className={cn(
                       "block py-2 text-base font-medium",
-                      pathname === item.href ? "text-asbmun-orange" : "text-white",
+                      pathname === item.href ? "text-accent" : "text-foreground", // text-asbmun-orange to text-accent, text-white to text-foreground
                     )}
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -202,7 +202,7 @@ export default function Header() {
                 transition={{ delay: navigation.length * 0.1, duration: 0.3 }}
                 className="pt-4"
               >
-                <Button className="w-full bg-asbmun-orange hover:bg-asbmun-orange/90 text-asbmun-black" asChild>
+                <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground" asChild> {/* Use theme variables */}
                   <Link href="/register">Register</Link>
                 </Button>
               </motion.div>

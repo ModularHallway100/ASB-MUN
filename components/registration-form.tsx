@@ -421,11 +421,11 @@ export default function RegistrationForm({ type }: RegistrationFormProps) {
                         <FormLabel>I agree to the terms and conditions of the conference</FormLabel>
                         <FormDescription>
                           By checking this box, you agree to our{" "}
-                          <a href="/terms" className="text-primary underline">
+                          <a href="/terms" className="text-accent underline hover:text-accent/90">
                             Terms of Service
                           </a>{" "}
                           and{" "}
-                          <a href="/privacy" className="text-primary underline">
+                          <a href="/privacy" className="text-accent underline hover:text-accent/90">
                             Privacy Policy
                           </a>
                           .

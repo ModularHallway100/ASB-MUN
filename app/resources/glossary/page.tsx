@@ -327,18 +327,18 @@ export default function GlossaryPage() {
   }, [searchTerm])
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-8 relative overflow-hidden">
+    <main className="min-h-screen bg-background text-foreground py-8 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-orange-200 rounded-full opacity-20 animate-float"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-blue-200 rounded-full opacity-30 animate-pulse-custom"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-primary/20 rounded-full opacity-20 animate-float"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-accent/20 rounded-full opacity-30 animate-pulse-custom"></div>
         <div
-          className="absolute bottom-32 left-1/4 w-40 h-40 bg-indigo-200 rounded-full opacity-15 animate-float"
+          className="absolute bottom-32 left-1/4 w-40 h-40 bg-primary/10 rounded-full opacity-15 animate-float"
           style={{ animationDelay: "2s" }}
         ></div>
-        <div className="absolute top-1/3 right-1/3 w-20 h-20 bg-orange-300 rounded-full opacity-25 animate-breathe"></div>
+        <div className="absolute top-1/3 right-1/3 w-20 h-20 bg-accent/30 rounded-full opacity-25 animate-breathe"></div>
         <div
-          className="absolute bottom-20 right-10 w-28 h-28 bg-blue-300 rounded-full opacity-20 animate-pulse-custom"
+          className="absolute bottom-20 right-10 w-28 h-28 bg-primary/30 rounded-full opacity-20 animate-pulse-custom"
           style={{ animationDelay: "1s" }}
         ></div>
       </div>
@@ -350,7 +350,7 @@ export default function GlossaryPage() {
         >
           <Link
             href="/resources"
-            className="inline-flex items-center text-slate-600 hover:text-slate-900 mb-4 transition-colors duration-300 hover-lift"
+            className="inline-flex items-center text-primary hover:text-accent mb-4 transition-colors duration-300 hover-lift"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Resources
@@ -358,14 +358,14 @@ export default function GlossaryPage() {
 
           <div className="text-center">
             <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg animate-pulse-custom hover-lift">
-                <BookOpen className="h-10 w-10 text-white animate-breathe" />
+              <div className="w-20 h-20 bg-gradient-to-br from-accent to-accent/80 rounded-2xl flex items-center justify-center shadow-lg animate-pulse-custom hover-lift">
+                <BookOpen className="h-10 w-10 text-accent-foreground animate-breathe" />
               </div>
             </div>
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-slate-900 via-blue-800 to-indigo-900 bg-clip-text text-transparent mb-4 animate-color-cycle">
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent mb-4 animate-color-cycle">
               Model UN Cheat Sheet
             </h1>
-            <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
               You're new to MUN or just quickly need to look up one of the many specialized terms? This is your place.
             </p>
           </div>
@@ -376,15 +376,15 @@ export default function GlossaryPage() {
           className={`relative mb-8 transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
           <div className="relative group">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-6 w-6 text-slate-400 group-focus-within:text-orange-500 transition-colors duration-300" />
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-6 w-6 text-muted-foreground group-focus-within:text-accent transition-colors duration-300" />
             <Input
               type="text"
               placeholder="Which word are you looking for?"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-12 py-4 text-lg border-2 border-slate-200 focus:border-orange-500 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 bg-white/80 backdrop-blur-sm"
+              className="pl-12 py-4 text-lg border-2 border-border focus:border-accent rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 bg-background/80 backdrop-blur-sm"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-blue-500/10 rounded-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-accent/10 to-primary/10 rounded-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
           </div>
         </div>
 
@@ -393,27 +393,27 @@ export default function GlossaryPage() {
           {filteredTerms.map((section, sectionIndex) => (
             <div
               key={section.letter}
-              className={`bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 p-8 border border-white/50 hover-lift animate-slide-in-up`}
+              className={`bg-card/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 p-8 border border-card/50 hover-lift animate-slide-in-up`}
               style={{ animationDelay: `${(sectionIndex + 1) * 200}ms` }}
             >
-              <h2 className="text-4xl font-bold bg-gradient-to-r from-orange-600 to-blue-600 bg-clip-text text-transparent mb-8 border-b-2 border-gradient-to-r from-orange-200 to-blue-200 pb-4 animate-glow">
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent mb-8 border-b-2 border-gradient-to-r from-accent/30 to-primary/30 pb-4 animate-glow">
                 {section.letter}
               </h2>
               <div className="space-y-6">
                 {section.terms.map((term, index) => (
                   <div
                     key={index}
-                    className="group relative border-l-4 border-orange-500 pl-6 py-4 rounded-r-lg bg-gradient-to-r from-orange-50/50 to-transparent hover:from-orange-100/70 hover:to-blue-50/30 transition-all duration-300 hover-lift"
+                    className="group relative border-l-4 border-accent pl-6 py-4 rounded-r-lg bg-gradient-to-r from-accent/10 to-transparent hover:from-accent/20 hover:to-primary/10 transition-all duration-300 hover-lift"
                     style={{ animationDelay: `${(sectionIndex + 1) * 200 + index * 100}ms` }}
                   >
-                    <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-orange-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-orange-700 transition-colors duration-300">
+                    <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <h3 className="text-xl font-bold text-card-foreground mb-3 group-hover:text-accent transition-colors duration-300">
                       {term.title}
                     </h3>
-                    <p className="text-slate-700 leading-relaxed group-hover:text-slate-800 transition-colors duration-300">
+                    <p className="text-card-foreground/80 leading-relaxed group-hover:text-card-foreground transition-colors duration-300">
                       {term.definition}
                     </p>
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 to-blue-500/5 rounded-r-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-primary/5 rounded-r-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                   </div>
                 ))}
               </div>
@@ -424,15 +424,15 @@ export default function GlossaryPage() {
         {/* No Results */}
         {filteredTerms.length === 0 && (
           <div className="text-center py-16 animate-slide-in-up">
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-12 border border-white/50">
-              <div className="w-24 h-24 bg-gradient-to-br from-orange-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-custom">
-                <Search className="h-12 w-12 text-white" />
+            <div className="bg-card/80 backdrop-blur-sm rounded-2xl shadow-lg p-12 border-border">
+              <div className="w-24 h-24 bg-gradient-to-br from-accent to-primary rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-custom">
+                <Search className="h-12 w-12 text-accent-foreground" />
               </div>
-              <p className="text-slate-500 text-xl mb-6">No terms found matching "{searchTerm}"</p>
+              <p className="text-muted-foreground text-xl mb-6">No terms found matching "{searchTerm}"</p>
               <Button
                 variant="outline"
                 onClick={() => setSearchTerm("")}
-                className="hover-lift bg-white/80 backdrop-blur-sm border-2 border-orange-200 hover:border-orange-500 hover:bg-orange-50 transition-all duration-300"
+                className="hover-lift transition-all duration-300"
               >
                 Clear Search
               </Button>
@@ -442,24 +442,25 @@ export default function GlossaryPage() {
 
         {/* Footer */}
         <div className="mt-16 text-center animate-slide-in-up" style={{ animationDelay: "800ms" }}>
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 border border-white/50 hover-lift">
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-slate-900 to-blue-800 bg-clip-text text-transparent mb-4">
+          <div className="bg-card/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 border-border hover-lift">
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-card-foreground to-primary bg-clip-text text-transparent mb-4">
               Need More Help?
             </h3>
-            <p className="text-slate-600 mb-8 text-lg">
+            <p className="text-muted-foreground mb-8 text-lg">
               Can't find what you're looking for? Our team is here to help you prepare for the conference.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 asChild
-                className="hover-lift bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 shadow-lg hover:shadow-xl transition-all duration-300"
+                variant="default"
+                className="hover-lift shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <Link href="/contact">Contact Us</Link>
               </Button>
               <Button
                 variant="outline"
                 asChild
-                className="hover-lift bg-white/80 backdrop-blur-sm border-2 border-blue-200 hover:border-blue-500 hover:bg-blue-50 transition-all duration-300"
+                className="hover-lift transition-all duration-300"
               >
                 <Link href="/resources">Back to Resources</Link>
               </Button>
@@ -467,13 +468,13 @@ export default function GlossaryPage() {
           </div>
 
           {/* Credits */}
-          <p className="text-sm text-slate-500 mt-8 animate-breathe">
+          <p className="text-sm text-muted-foreground mt-8 animate-breathe">
             Glossary content adapted from{" "}
             <a
               href="https://mymun.com/glossary"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-orange-600 hover:text-orange-700 transition-colors duration-300 hover:underline"
+              className="text-accent hover:text-accent/90 transition-colors duration-300 hover:underline"
             >
               mymun.com
             </a>
@@ -503,8 +504,8 @@ export default function GlossaryPage() {
         }
         
         @keyframes glow {
-          0%, 100% { text-shadow: 0 0 10px rgba(249, 115, 22, 0.3); }
-          50% { text-shadow: 0 0 20px rgba(249, 115, 22, 0.6), 0 0 30px rgba(59, 130, 246, 0.3); }
+          0%, 100% { text-shadow: 0 0 10px hsla(var(--accent), 0.3); }
+          50% { text-shadow: 0 0 20px hsla(var(--accent), 0.6), 0 0 30px hsla(var(--primary), 0.3); }
         }
         
         @keyframes slide-in-up {

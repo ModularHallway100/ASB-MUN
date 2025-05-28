@@ -172,7 +172,7 @@ export default function ContactForm() {
         >
           <Button type="submit" className="w-full relative overflow-hidden group" disabled={isSubmitting}>
             <span className="relative z-10">{isSubmitting ? "Sending..." : "Send Message"}</span>
-            <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+            <span className="absolute inset-0 bg-accent-foreground/10 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
           </Button>
         </motion.div>
       </form>

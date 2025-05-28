@@ -43,7 +43,7 @@ export default function FeaturedPost({ post }: FeaturedPostProps) {
           </motion.div>
           <CardContent className="flex-1 p-6">
             <motion.div
-              className="flex items-center text-sm text-slate-500 mb-2"
+              className="flex items-center text-sm text-muted-foreground mb-2" // Changed from text-slate-500
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -60,7 +60,7 @@ export default function FeaturedPost({ post }: FeaturedPostProps) {
               {post.title}
             </motion.h3>
             <motion.p
-              className="text-slate-600 mb-4"
+              className="text-card-foreground/80 mb-4" // Changed from text-slate-600
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -74,10 +74,10 @@ export default function FeaturedPost({ post }: FeaturedPostProps) {
             >
               <Link
                 href={`/blog/${post.slug}`}
-                className="text-sm font-medium text-slate-900 hover:underline relative group"
+                className="text-sm font-medium text-accent hover:underline relative group" // Changed from text-slate-900
               >
                 Read more
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-slate-900 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full"></span> {/* Changed from bg-slate-900 */}
               </Link>
             </motion.div>
           </CardContent>

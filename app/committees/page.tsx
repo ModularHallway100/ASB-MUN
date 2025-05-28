@@ -98,38 +98,38 @@ export default function CommitteesPage() {
   const getLevelColor = (level: string) => {
     switch (level.toLowerCase()) {
       case "beginner":
-        return "bg-green-100 text-green-800"
+        return "bg-accent/20 text-accent" // Light Orange bg, Orange text
       case "intermediate":
-        return "bg-blue-100 text-blue-800"
+        return "bg-primary/20 text-primary" // Light Mocha bg, Mocha text
       case "advanced":
-        return "bg-purple-100 text-purple-800"
+        return "bg-primary text-primary-foreground" // Mocha bg, White text
       default:
-        return "bg-slate-100 text-slate-800"
+        return "bg-muted text-muted-foreground" // Muted bg, Muted text
     }
   }
 
   return (
-    <main className="flex-1 py-12 md:py-24">
+    <main className="flex-1 py-12 md:py-24 bg-background text-foreground">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Committees</h1>
-          <p className="text-slate-600 max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             Explore our diverse range of committees designed for delegates of all experience levels
           </p>
         </div>
 
         <Tabs defaultValue="all" className="w-full mb-12">
-          <TabsList className="grid w-full grid-cols-4">
-            <TabsTrigger value="all">All Committees</TabsTrigger>
-            <TabsTrigger value="general">General Assembly</TabsTrigger>
-            <TabsTrigger value="specialized">Specialized</TabsTrigger>
-            <TabsTrigger value="crisis">Crisis</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-4 bg-card text-card-foreground p-1 rounded-md">
+            <TabsTrigger value="all" className="data-[state=active]:bg-background data-[state=active]:text-foreground">All Committees</TabsTrigger>
+            <TabsTrigger value="general" className="data-[state=active]:bg-background data-[state=active]:text-foreground">General Assembly</TabsTrigger>
+            <TabsTrigger value="specialized" className="data-[state=active]:bg-background data-[state=active]:text-foreground">Specialized</TabsTrigger>
+            <TabsTrigger value="crisis" className="data-[state=active]:bg-background data-[state=active]:text-foreground">Crisis</TabsTrigger>
           </TabsList>
 
           <TabsContent value="all" className="mt-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {committees.map((committee) => (
-                <Card key={committee.id} className="overflow-hidden transition-all hover:shadow-md">
+                <Card key={committee.id} className="overflow-hidden transition-all hover:shadow-lg border-border hover:border-primary">
                   <div className="relative h-48 w-full">
                     <Image
                       src={committee.image || "/placeholder.svg"}
@@ -140,16 +140,16 @@ export default function CommitteesPage() {
                   </div>
                   <CardHeader className="pb-2">
                     <div className="flex justify-between items-start">
-                      <CardTitle>{committee.name}</CardTitle>
+                      <CardTitle>{committee.name}</CardTitle> {/* Uses text-card-foreground (White) */}
                       <Badge className={getLevelColor(committee.level)}>{committee.level}</Badge>
                     </div>
-                    <CardDescription>{committee.topic}</CardDescription>
+                    <CardDescription>{committee.topic}</CardDescription> {/* Uses text-muted-foreground (Light Gray) */}
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-slate-600">{committee.description}</p>
+                    <p className="text-sm text-card-foreground/80">{committee.description}</p>
                   </CardContent>
                   <CardFooter>
-                    <Button asChild>
+                    <Button asChild variant="default" size="sm">
                       <Link href={`/committees/${committee.id}`}>View Details</Link>
                     </Button>
                   </CardFooter>
@@ -163,7 +163,7 @@ export default function CommitteesPage() {
               {committees
                 .filter((committee) => committee.category === "general")
                 .map((committee) => (
-                  <Card key={committee.id} className="overflow-hidden transition-all hover:shadow-md">
+                  <Card key={committee.id} className="overflow-hidden transition-all hover:shadow-lg border-border hover:border-primary">
                     <div className="relative h-48 w-full">
                       <Image
                         src={committee.image || "/placeholder.svg"}
@@ -180,10 +180,10 @@ export default function CommitteesPage() {
                       <CardDescription>{committee.topic}</CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-sm text-slate-600">{committee.description}</p>
+                      <p className="text-sm text-card-foreground/80">{committee.description}</p>
                     </CardContent>
                     <CardFooter>
-                      <Button asChild>
+                      <Button asChild variant="default" size="sm">
                         <Link href={`/committees/${committee.id}`}>View Details</Link>
                       </Button>
                     </CardFooter>
@@ -197,7 +197,7 @@ export default function CommitteesPage() {
               {committees
                 .filter((committee) => committee.category === "specialized")
                 .map((committee) => (
-                  <Card key={committee.id} className="overflow-hidden transition-all hover:shadow-md">
+                  <Card key={committee.id} className="overflow-hidden transition-all hover:shadow-lg border-border hover:border-primary">
                     <div className="relative h-48 w-full">
                       <Image
                         src={committee.image || "/placeholder.svg"}
@@ -214,10 +214,10 @@ export default function CommitteesPage() {
                       <CardDescription>{committee.topic}</CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-sm text-slate-600">{committee.description}</p>
+                      <p className="text-sm text-card-foreground/80">{committee.description}</p>
                     </CardContent>
                     <CardFooter>
-                      <Button asChild>
+                      <Button asChild variant="default" size="sm">
                         <Link href={`/committees/${committee.id}`}>View Details</Link>
                       </Button>
                     </CardFooter>
@@ -231,7 +231,7 @@ export default function CommitteesPage() {
               {committees
                 .filter((committee) => committee.category === "crisis")
                 .map((committee) => (
-                  <Card key={committee.id} className="overflow-hidden transition-all hover:shadow-md">
+                  <Card key={committee.id} className="overflow-hidden transition-all hover:shadow-lg border-border hover:border-primary">
                     <div className="relative h-48 w-full">
                       <Image
                         src={committee.image || "/placeholder.svg"}
@@ -248,10 +248,10 @@ export default function CommitteesPage() {
                       <CardDescription>{committee.topic}</CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-sm text-slate-600">{committee.description}</p>
+                      <p className="text-sm text-card-foreground/80">{committee.description}</p>
                     </CardContent>
                     <CardFooter>
-                      <Button asChild>
+                      <Button asChild variant="default" size="sm">
                         <Link href={`/committees/${committee.id}`}>View Details</Link>
                       </Button>
                     </CardFooter>
@@ -261,35 +261,35 @@ export default function CommitteesPage() {
           </TabsContent>
         </Tabs>
 
-        <div className="bg-slate-50 p-8 rounded-lg">
+        <div className="bg-card text-card-foreground p-8 rounded-lg">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-2xl font-bold mb-4">Committee Assignment Process</h2>
-              <p className="text-slate-600 mb-4">
+              <p className="text-card-foreground/80 mb-4">
                 Delegates will be assigned to committees based on their preferences and experience level. We strive to
                 create a balanced and educational experience for all participants.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start">
-                  <span className="bg-slate-200 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">
+                  <span className="bg-accent text-accent-foreground rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5 text-sm font-bold">
                     1
                   </span>
                   <span>Indicate your committee preferences during registration</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="bg-slate-200 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">
+                  <span className="bg-accent text-accent-foreground rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5 text-sm font-bold">
                     2
                   </span>
                   <span>Our team reviews all applications and assigns committees</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="bg-slate-200 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">
+                  <span className="bg-accent text-accent-foreground rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5 text-sm font-bold">
                     3
                   </span>
                   <span>Committee assignments are sent via email one month before the conference</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="bg-slate-200 rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5">
+                  <span className="bg-accent text-accent-foreground rounded-full w-6 h-6 flex items-center justify-center mr-2 mt-0.5 text-sm font-bold">
                     4
                   </span>
                   <span>Country assignments and position papers are due two weeks after committee assignments</span>

@@ -82,18 +82,18 @@ export default function BlogPage() {
   ]
 
   return (
-    <main className="flex-1 py-12 md:py-24">
+    <main className="flex-1 py-12 md:py-24 bg-background text-foreground">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Blog</h1>
-          <p className="text-slate-600 max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             Stay updated with the latest news and announcements about GMUN 2025
           </p>
         </div>
 
         {/* Featured Post */}
         <div className="mb-16">
-          <Card className="overflow-hidden">
+          <Card className="overflow-hidden"> {/* Will use bg-card text-card-foreground */}
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="relative h-64 md:h-auto">
                 <Image
@@ -104,12 +104,12 @@ export default function BlogPage() {
                 />
               </div>
               <div className="p-6 md:p-8">
-                <div className="flex items-center text-sm text-slate-500 mb-2">
+                <div className="flex items-center text-sm text-muted-foreground mb-2">
                   <CalendarIcon className="mr-1 h-4 w-4" />
                   <time dateTime={featuredPost.date}>{featuredPost.date}</time>
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold mb-4">{featuredPost.title}</h2>
-                <p className="text-slate-600 mb-6">{featuredPost.excerpt}</p>
+                <p className="text-card-foreground/80 mb-6">{featuredPost.excerpt}</p>
                 <Button asChild>
                   <Link href={`/blog/${featuredPost.slug}`}>Read More</Link>
                 </Button>
@@ -123,19 +123,19 @@ export default function BlogPage() {
           <div className="lg:col-span-2">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {posts.map((post) => (
-                <Card key={post.id} className="overflow-hidden flex flex-col h-full">
+                <Card key={post.id} className="overflow-hidden flex flex-col h-full"> {/* Will use bg-card text-card-foreground */}
                   <div className="relative h-48">
                     <Image src={post.image || "/placeholder.svg"} alt={post.title} fill className="object-cover" />
                   </div>
                   <CardHeader className="pb-2">
-                    <div className="flex items-center text-sm text-slate-500 mb-1">
+                    <div className="flex items-center text-sm text-muted-foreground mb-1">
                       <CalendarIcon className="mr-1 h-4 w-4" />
                       <time dateTime={post.date}>{post.date}</time>
                     </div>
                     <CardTitle>{post.title}</CardTitle>
                   </CardHeader>
                   <CardContent className="pb-2">
-                    <p className="text-slate-600">{post.excerpt}</p>
+                    <p className="text-card-foreground/80">{post.excerpt}</p>
                   </CardContent>
                   <CardFooter className="mt-auto pt-4">
                     <Button variant="outline" asChild>
@@ -154,20 +154,20 @@ export default function BlogPage() {
           {/* Sidebar */}
           <div>
             {/* Search */}
-            <Card className="mb-6">
+            <Card className="mb-6"> {/* Will use bg-card text-card-foreground */}
               <CardHeader>
                 <CardTitle>Search</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex gap-2">
                   <Input placeholder="Search blog posts..." />
-                  <Button>Search</Button>
+                  <Button>Search</Button> {/* Default orange button */}
                 </div>
               </CardContent>
             </Card>
 
             {/* Categories */}
-            <Card className="mb-6">
+            <Card className="mb-6"> {/* Will use bg-card text-card-foreground */}
               <CardHeader>
                 <CardTitle>Categories</CardTitle>
               </CardHeader>
@@ -177,10 +177,10 @@ export default function BlogPage() {
                     <li key={category.name}>
                       <Link
                         href={`/blog/category/${category.name.toLowerCase().replace(/\s+/g, "-")}`}
-                        className="flex justify-between items-center text-slate-700 hover:text-primary"
+                        className="flex justify-between items-center text-card-foreground/80 hover:text-accent"
                       >
                         <span>{category.name}</span>
-                        <span className="bg-slate-100 px-2 py-1 rounded-full text-xs">{category.count}</span>
+                        <span className="bg-secondary text-secondary-foreground px-2 py-1 rounded-full text-xs">{category.count}</span>
                       </Link>
                     </li>
                   ))}
@@ -189,17 +189,17 @@ export default function BlogPage() {
             </Card>
 
             {/* Newsletter */}
-            <Card>
+            <Card> {/* Will use bg-card text-card-foreground */}
               <CardHeader>
                 <CardTitle>Subscribe to Updates</CardTitle>
-                <CardDescription>
+                <CardDescription> {/* Uses text-muted-foreground by default from Card component */}
                   Get the latest news and updates about GMUN 2025 delivered to your inbox.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <form className="space-y-4">
                   <Input placeholder="Your email address" type="email" />
-                  <Button className="w-full">Subscribe</Button>
+                  <Button className="w-full">Subscribe</Button> {/* Default orange button */}
                 </form>
               </CardContent>
             </Card>

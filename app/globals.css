@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
-    --primary: 24 24% 52%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 9%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 24 10% 90%;
-    --muted-foreground: 24 8% 40%;
-    --accent: 30 100% 50%;
-    --accent-foreground: 0 0% 0%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 24 10% 80%;
-    --input: 24 10% 80%;
-    --ring: 24 24% 52%;
+    --background: 0 0% 0%; /* Black */
+    --foreground: 0 0% 100%; /* White */
+    --card: 27 14% 52%; /* Mocha */
+    --card-foreground: 0 0% 100%; /* White */
+    --popover: 27 14% 52%; /* Mocha */
+    --popover-foreground: 0 0% 100%; /* White */
+    --primary: 27 14% 52%; /* Mocha */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 27 14% 30%; /* Darker Mocha */
+    --secondary-foreground: 0 0% 100%; /* White */
+    --muted: 27 10% 40%; /* Darker Mocha */
+    --muted-foreground: 0 0% 70%; /* Light Gray */
+    --accent: 30 100% 50%; /* Orange */
+    --accent-foreground: 0 0% 0%; /* Black */
+    --destructive: 0 70% 50%; /* Red */
+    --destructive-foreground: 0 0% 100%; /* White */
+    --border: 27 14% 40%; /* Darker Mocha */
+    --input: 27 14% 25%; /* Darker Mocha */
+    --ring: 30 100% 50%; /* Orange */
     --radius: 0.5rem;
     --chart-1: 24 24% 52%;
     --chart-2: 30 100% 50%;
@@ -32,25 +32,25 @@
   }
 
   .dark {
-    --background: 0 0% 7%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 24 24% 52%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 24 5% 65%;
-    --accent: 30 100% 50%;
-    --accent-foreground: 0 0% 0%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 24 24% 52%;
+    --background: 0 0% 0%; /* Black */
+    --foreground: 0 0% 100%; /* White */
+    --card: 27 14% 52%; /* Mocha */
+    --card-foreground: 0 0% 100%; /* White */
+    --popover: 27 14% 52%; /* Mocha */
+    --popover-foreground: 0 0% 100%; /* White */
+    --primary: 27 14% 52%; /* Mocha */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 27 14% 30%; /* Darker Mocha */
+    --secondary-foreground: 0 0% 100%; /* White */
+    --muted: 27 10% 40%; /* Darker Mocha */
+    --muted-foreground: 0 0% 70%; /* Light Gray */
+    --accent: 30 100% 50%; /* Orange */
+    --accent-foreground: 0 0% 0%; /* Black */
+    --destructive: 0 70% 50%; /* Red */
+    --destructive-foreground: 0 0% 100%; /* White */
+    --border: 27 14% 40%; /* Darker Mocha */
+    --input: 27 14% 25%; /* Darker Mocha */
+    --ring: 30 100% 50%; /* Orange */
     --chart-1: 24 24% 52%;
     --chart-2: 30 100% 50%;
     --chart-3: 0 0% 100%;

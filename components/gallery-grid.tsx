@@ -118,7 +118,7 @@ export default function GalleryGrid({ photos }: GalleryGridProps) {
                 whileHover={{ y: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="text-white text-sm">{photo.caption}</p>
+                <p className="text-foreground text-sm">{photo.caption}</p> {/* text-white to text-foreground */}
               </motion.div>
             </motion.div>
           </motion.div>
@@ -126,7 +126,7 @@ export default function GalleryGrid({ photos }: GalleryGridProps) {
       </motion.div>
 
       <motion.div
-        className="fixed top-0 left-0 bg-black bg-opacity-70 text-white rounded-full flex items-center justify-center pointer-events-none z-50"
+        className="fixed top-0 left-0 bg-black bg-opacity-70 text-foreground rounded-full flex items-center justify-center pointer-events-none z-50" // text-white to text-foreground
         variants={variants}
         animate={cursorVariant}
         transition={{ type: "spring", stiffness: 500, damping: 28 }}
@@ -135,7 +135,7 @@ export default function GalleryGrid({ photos }: GalleryGridProps) {
       </motion.div>
 
       <Dialog open={!!selectedPhoto} onOpenChange={(open) => !open && closeLightbox()}>
-        <DialogContent className="max-w-4xl w-[90vw] p-0 bg-black">
+        <DialogContent className="max-w-4xl w-[90vw] p-0 bg-background"> {/* bg-black to bg-background */}
           <AnimatePresence mode="wait">
             {selectedPhoto && (
               <motion.div
@@ -154,7 +154,7 @@ export default function GalleryGrid({ photos }: GalleryGridProps) {
                 />
 
                 <motion.button
-                  className="absolute top-2 right-2 p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-70"
+                  className="absolute top-2 right-2 p-2 bg-black bg-opacity-50 rounded-full text-foreground hover:bg-opacity-70" // text-white to text-foreground
                   onClick={closeLightbox}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
@@ -163,7 +163,7 @@ export default function GalleryGrid({ photos }: GalleryGridProps) {
                 </motion.button>
 
                 <motion.button
-                  className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-70"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-black bg-opacity-50 rounded-full text-foreground hover:bg-opacity-70" // text-white to text-foreground
                   onClick={() => navigatePhoto("prev")}
                   whileHover={{ scale: 1.1, x: -3 }}
                   whileTap={{ scale: 0.9 }}
@@ -172,7 +172,7 @@ export default function GalleryGrid({ photos }: GalleryGridProps) {
                 </motion.button>
 
                 <motion.button
-                  className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-70"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-black bg-opacity-50 rounded-full text-foreground hover:bg-opacity-70" // text-white to text-foreground
                   onClick={() => navigatePhoto("next")}
                   whileHover={{ scale: 1.1, x: 3 }}
                   whileTap={{ scale: 0.9 }}
@@ -185,13 +185,13 @@ export default function GalleryGrid({ photos }: GalleryGridProps) {
 
           {selectedPhoto && (
             <motion.div
-              className="p-4 bg-white"
+              className="p-4 bg-card text-card-foreground" // bg-white to bg-card, add text-card-foreground
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.3, delay: 0.2 }}
             >
-              <DialogTitle>{selectedPhoto.caption}</DialogTitle>
-              <DialogDescription>{selectedPhoto.alt}</DialogDescription>
+              <DialogTitle>{selectedPhoto.caption}</DialogTitle> {/* Will inherit text-card-foreground */}
+              <DialogDescription>{selectedPhoto.alt}</DialogDescription> {/* Will use text-muted-foreground */}
             </motion.div>
           )}
         </DialogContent>

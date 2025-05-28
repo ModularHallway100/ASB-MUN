@@ -170,27 +170,27 @@ export default function GalleryPage() {
   ]
 
   return (
-    <main className="flex-1 py-12 md:py-24">
+    <main className="flex-1 py-12 md:py-24 bg-background text-foreground">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Gallery</h1>
-          <p className="text-slate-600 max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             Explore photos and videos from past Global Model United Nations conferences
           </p>
         </div>
 
         <Tabs defaultValue="photos" className="w-full">
-          <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="photos">Photos</TabsTrigger>
-            <TabsTrigger value="videos">Videos</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-2 bg-card text-card-foreground p-1 rounded-md">
+            <TabsTrigger value="photos" className="data-[state=active]:bg-background data-[state=active]:text-foreground">Photos</TabsTrigger>
+            <TabsTrigger value="videos" className="data-[state=active]:bg-background data-[state=active]:text-foreground">Videos</TabsTrigger>
           </TabsList>
 
           <TabsContent value="photos" className="mt-6">
             <Tabs defaultValue="2024">
-              <TabsList className="mb-6">
-                <TabsTrigger value="2024">ASBMUN 2024</TabsTrigger>
-                <TabsTrigger value="2023">ASBMUN 2023</TabsTrigger>
-                <TabsTrigger value="2022">ASBMUN 2022</TabsTrigger>
+              <TabsList className="mb-6 bg-card text-card-foreground p-1 rounded-md">
+                <TabsTrigger value="2024" className="data-[state=active]:bg-background data-[state=active]:text-foreground">ASBMUN 2024</TabsTrigger>
+                <TabsTrigger value="2023" className="data-[state=active]:bg-background data-[state=active]:text-foreground">ASBMUN 2023</TabsTrigger>
+                <TabsTrigger value="2022" className="data-[state=active]:bg-background data-[state=active]:text-foreground">ASBMUN 2022</TabsTrigger>
               </TabsList>
 
               <TabsContent value="2024">
@@ -210,7 +210,7 @@ export default function GalleryPage() {
           <TabsContent value="videos" className="mt-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {videos.map((video) => (
-                <div key={video.id} className="bg-white rounded-lg overflow-hidden shadow-md">
+                <div key={video.id} className="bg-card text-card-foreground rounded-lg overflow-hidden shadow-md">
                   <div className="relative pb-[56.25%] h-0">
                     <iframe
                       className="absolute top-0 left-0 w-full h-full"
@@ -222,7 +222,7 @@ export default function GalleryPage() {
                   </div>
                   <div className="p-4">
                     <h3 className="text-xl font-bold mb-2">{video.title}</h3>
-                    <p className="text-slate-600">{video.description}</p>
+                    <p className="text-card-foreground/80">{video.description}</p>
                   </div>
                 </div>
               ))}
@@ -230,9 +230,9 @@ export default function GalleryPage() {
           </TabsContent>
         </Tabs>
 
-        <div className="mt-16 bg-slate-50 p-8 rounded-lg text-center">
+        <div className="mt-16 bg-card text-card-foreground p-8 rounded-lg text-center">
           <h2 className="text-2xl font-bold mb-4">Share Your Photos</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto mb-6">
+          <p className="text-card-foreground/80 max-w-2xl mx-auto mb-6">
             Did you attend a previous GMUN conference? Share your photos with us to be featured in our gallery!
           </p>
           <div className="flex justify-center">
@@ -244,9 +244,9 @@ export default function GalleryPage() {
               className="rounded-lg mb-6"
             />
           </div>
-          <p className="text-slate-600 max-w-2xl mx-auto mb-6">
+          <p className="text-card-foreground/80 max-w-2xl mx-auto mb-6">
             Email your high-resolution photos to{" "}
-            <a href="mailto:gallery@gmun2025.org" className="text-primary hover:underline">
+            <a href="mailto:gallery@gmun2025.org" className="text-accent hover:underline">
               gallery@gmun2025.org
             </a>{" "}
             with your name, the year you attended, and a brief description.
