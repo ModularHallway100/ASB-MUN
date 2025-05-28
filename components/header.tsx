@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -65,7 +66,7 @@ export default function Header() {
       variants={headerVariants}
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
-        scrolled ? "bg-white/90 backdrop-blur-md shadow-md" : "bg-white",
+        scrolled ? "bg-asbmun-black/90 backdrop-blur-md shadow-md" : "bg-asbmun-black",
       )}
     >
       <div className="container mx-auto px-4">
@@ -77,7 +78,15 @@ export default function Header() {
             transition={{ duration: 0.5 }}
           >
             <Link href="/" className="flex items-center">
-              <span className="text-xl font-bold text-slate-800">ASBMUN</span>
+              <div className="relative h-12 w-12 mr-2">
+                <Image
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ASBMUN%20Logo%20Final.jpg-0zwsydTCTVrQV4GVwCxKZf7LvNHT2b.jpeg"
+                  alt="ASBMUN Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-xl font-bold text-white">ASBMUN</span>
             </Link>
           </motion.div>
 
@@ -88,14 +97,14 @@ export default function Header() {
                 <Link
                   href={item.href}
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-slate-900 relative group",
-                    pathname === item.href ? "text-slate-900" : "text-slate-600",
+                    "text-sm font-medium transition-colors hover:text-asbmun-orange relative group",
+                    pathname === item.href ? "text-asbmun-orange" : "text-white",
                   )}
                 >
                   {item.name}
                   <span
                     className={cn(
-                      "absolute -bottom-1 left-0 w-0 h-0.5 bg-slate-900 transition-all duration-300 group-hover:w-full",
+                      "absolute -bottom-1 left-0 w-0 h-0.5 bg-asbmun-orange transition-all duration-300 group-hover:w-full",
                       pathname === item.href ? "w-full" : "w-0",
                     )}
                   ></span>
@@ -103,7 +112,10 @@ export default function Header() {
               </motion.div>
             ))}
             <motion.div custom={navigation.length} initial="hidden" animate="visible" variants={navItemVariants}>
-              <Button asChild className="relative overflow-hidden group">
+              <Button
+                asChild
+                className="bg-asbmun-orange hover:bg-asbmun-orange/90 text-asbmun-black relative overflow-hidden group"
+              >
                 <Link href="/register">
                   <span className="relative z-10">Register</span>
                   <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
@@ -119,7 +131,13 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Button variant="ghost" size="icon" onClick={toggleMenu} aria-label="Toggle menu">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+              className="text-white hover:text-asbmun-orange"
+            >
               <AnimatePresence mode="wait">
                 {isMenuOpen ? (
                   <motion.div
@@ -151,7 +169,13 @@ export default function Header() {
       {/* Mobile Navigation */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div className="md:hidden" initial="closed" animate="open" exit="closed" variants={mobileMenuVariants}>
+          <motion.div
+            className="md:hidden bg-asbmun-black"
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={mobileMenuVariants}
+          >
             <div className="space-y-1 px-4 pb-3 pt-2">
               {navigation.map((item, i) => (
                 <motion.div
@@ -164,7 +188,7 @@ export default function Header() {
                     href={item.href}
                     className={cn(
                       "block py-2 text-base font-medium",
-                      pathname === item.href ? "text-slate-900" : "text-slate-600",
+                      pathname === item.href ? "text-asbmun-orange" : "text-white",
                     )}
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -178,7 +202,7 @@ export default function Header() {
                 transition={{ delay: navigation.length * 0.1, duration: 0.3 }}
                 className="pt-4"
               >
-                <Button className="w-full" asChild>
+                <Button className="w-full bg-asbmun-orange hover:bg-asbmun-orange/90 text-asbmun-black" asChild>
                   <Link href="/register">Register</Link>
                 </Button>
               </motion.div>

@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import Link from "next/link"
 
 export default function WhyJoinSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -93,10 +92,10 @@ export default function WhyJoinSection() {
         
         @keyframes glow {
           0%, 100% { 
-            box-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
+            box-shadow: 0 0 10px rgba(255, 128, 0, 0.3);
           }
           50% { 
-            box-shadow: 0 0 25px rgba(251, 191, 36, 0.7);
+            box-shadow: 0 0 25px rgba(255, 128, 0, 0.7);
           }
         }
         
@@ -177,20 +176,20 @@ export default function WhyJoinSection() {
 
       <section
         ref={sectionRef}
-        className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden"
+        className="py-20 bg-gradient-to-br from-asbmun-black via-asbmun-black to-asbmun-black/90 relative overflow-hidden"
       >
         {/* Animated background elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-32 h-32 bg-blue-400 rounded-full opacity-10 float-animation"></div>
-          <div className="absolute bottom-20 right-20 w-24 h-24 bg-yellow-400 rounded-full opacity-10 float-delayed"></div>
-          <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-green-400 rounded-full opacity-10 float-delayed-2"></div>
-          <div className="absolute top-1/4 right-1/4 w-20 h-20 bg-purple-400 rounded-full opacity-10 float-delayed-3"></div>
+          <div className="absolute top-20 left-10 w-32 h-32 bg-asbmun-mocha rounded-full opacity-10 float-animation"></div>
+          <div className="absolute bottom-20 right-20 w-24 h-24 bg-asbmun-orange rounded-full opacity-10 float-delayed"></div>
+          <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-asbmun-mocha rounded-full opacity-10 float-delayed-2"></div>
+          <div className="absolute top-1/4 right-1/4 w-20 h-20 bg-asbmun-orange rounded-full opacity-10 float-delayed-3"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className={`text-center mb-16 ${isVisible ? "slide-in" : "opacity-0"}`}>
             <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 pulse-animation">WHY JOIN ASBMUN?</h2>
-            <p className="text-xl text-blue-100 max-w-4xl mx-auto">
+            <p className="text-xl text-asbmun-mocha max-w-4xl mx-auto">
               Transform your future through diplomacy, leadership, and global engagement
             </p>
           </div>
@@ -208,14 +207,14 @@ export default function WhyJoinSection() {
                   <div
                     key={i}
                     className={`w-4 h-4 rounded-full transition-all duration-300 ${
-                      i === 11 ? "bg-yellow-400 glow-effect" : "bg-slate-300"
+                      i === 11 ? "bg-asbmun-orange glow-effect" : "bg-asbmun-mocha/30"
                     } dot-pulse`}
                     style={{ animationDelay: `${i * 0.1}s` }}
                   />
                 ))}
               </div>
 
-              <h3 className="text-3xl font-bold text-slate-900 leading-tight">
+              <h3 className="text-3xl font-bold text-asbmun-black leading-tight">
                 DEVELOP
                 <br />
                 LEADERSHIP
@@ -226,7 +225,7 @@ export default function WhyJoinSection() {
 
             {/* Public Speaking Card */}
             <div
-              className={`bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl p-8 shadow-2xl card-hover float-delayed text-white relative overflow-hidden ${isVisible ? "slide-in stagger-2" : "opacity-0"}`}
+              className={`bg-gradient-to-br from-asbmun-mocha to-asbmun-mocha/80 rounded-3xl p-8 shadow-2xl card-hover float-delayed text-white relative overflow-hidden ${isVisible ? "slide-in stagger-2" : "opacity-0"}`}
             >
               <div className="shimmer-overlay"></div>
 
@@ -256,7 +255,7 @@ export default function WhyJoinSection() {
             >
               <div className="shimmer-overlay"></div>
 
-              <h3 className="text-3xl font-bold text-slate-900 mb-8 leading-tight">
+              <h3 className="text-3xl font-bold text-asbmun-black mb-8 leading-tight">
                 BUILD
                 <br />
                 DEBATE
@@ -270,15 +269,15 @@ export default function WhyJoinSection() {
                   <div className="flex space-x-4 wave-animation">
                     {/* Person 1 */}
                     <div className="relative">
-                      <div className="w-16 h-20 bg-gradient-to-b from-orange-400 to-orange-500 rounded-t-full"></div>
-                      <div className="w-4 h-4 bg-orange-300 rounded-full absolute top-0 left-6 breathe-animation"></div>
+                      <div className="w-16 h-20 bg-gradient-to-b from-asbmun-orange to-asbmun-orange/80 rounded-t-full"></div>
+                      <div className="w-4 h-4 bg-asbmun-orange/70 rounded-full absolute top-0 left-6 breathe-animation"></div>
                     </div>
 
                     {/* Person 2 */}
                     <div className="relative">
-                      <div className="w-16 h-20 bg-gradient-to-b from-blue-400 to-blue-500 rounded-t-full"></div>
+                      <div className="w-16 h-20 bg-gradient-to-b from-asbmun-mocha to-asbmun-mocha/80 rounded-t-full"></div>
                       <div
-                        className="w-4 h-4 bg-blue-300 rounded-full absolute top-0 left-6 breathe-animation"
+                        className="w-4 h-4 bg-asbmun-mocha/70 rounded-full absolute top-0 left-6 breathe-animation"
                         style={{ animationDelay: "0.5s" }}
                       ></div>
                     </div>
@@ -297,7 +296,7 @@ export default function WhyJoinSection() {
             >
               <div className="shimmer-overlay"></div>
 
-              <h3 className="text-3xl font-bold text-slate-900 mb-6 leading-tight">
+              <h3 className="text-3xl font-bold text-asbmun-black mb-6 leading-tight">
                 LEARN
                 <br />
                 ABOUT
@@ -310,129 +309,30 @@ export default function WhyJoinSection() {
               {/* Animated globe */}
               <div className="flex justify-center">
                 <div className="relative">
-                  <div className="w-24 h-24 bg-gradient-to-br from-blue-400 via-green-400 to-blue-500 rounded-full pulse-animation relative overflow-hidden">
+                  <div className="w-24 h-24 bg-gradient-to-br from-asbmun-mocha/70 via-asbmun-mocha/50 to-asbmun-mocha/70 rounded-full pulse-animation relative overflow-hidden">
                     {/* Continent shapes */}
-                    <div className="absolute top-2 left-2 w-8 h-6 bg-green-500 rounded-full opacity-80"></div>
-                    <div className="absolute bottom-3 right-3 w-6 h-4 bg-green-500 rounded-full opacity-80"></div>
-                    <div className="absolute top-1/2 left-1/2 w-4 h-3 bg-green-500 rounded-full opacity-80 transform -translate-x-1/2 -translate-y-1/2"></div>
+                    <div className="absolute top-2 left-2 w-8 h-6 bg-asbmun-mocha rounded-full opacity-80"></div>
+                    <div className="absolute bottom-3 right-3 w-6 h-4 bg-asbmun-mocha rounded-full opacity-80"></div>
+                    <div className="absolute top-1/2 left-1/2 w-4 h-3 bg-asbmun-mocha rounded-full opacity-80 transform -translate-x-1/2 -translate-y-1/2"></div>
                   </div>
 
                   {/* Orbiting elements */}
-                  <div className="absolute -top-2 -right-2 w-4 h-4 bg-yellow-400 rounded-full float-animation"></div>
-                  <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-red-400 rounded-full float-delayed"></div>
+                  <div className="absolute -top-2 -right-2 w-4 h-4 bg-asbmun-orange rounded-full float-animation"></div>
+                  <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-asbmun-orange/70 rounded-full float-delayed"></div>
                 </div>
               </div>
             </div>
 
             {/* Critical Thinking Card */}
             <div
-              className={`bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl p-8 shadow-2xl card-hover float-delayed-4 text-white relative overflow-hidden ${isVisible ? "slide-in stagger-5" : "opacity-0"}`}
+              className={`bg-gradient-to-br from-asbmun-black to-asbmun-black/90 rounded-3xl p-8 shadow-2xl card-hover float-delayed-4 text-white relative overflow-hidden ${isVisible ? "slide-in stagger-5" : "opacity-0"}`}
             >
               <div className="shimmer-overlay"></div>
 
               <div className="flex justify-center mb-6">
                 {/* Animated brain */}
                 <div className="relative">
-                  <div className="w-20 h-16 bg-gradient-to-br from-pink-300 to-purple-300 rounded-full pulse-animation relative">
+                  <div className="w-20 h-16 bg-gradient-to-br from-asbmun-mocha/70 to-asbmun-mocha/50 rounded-full pulse-animation relative">
                     {/* Brain pattern */}
                     <div className="absolute inset-2 border-2 border-white rounded-full opacity-60"></div>
-                    <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-white rounded-full transform -translate-x-1/2 -translate-y-1/2 breathe-animation"></div>
-                  </div>
-
-                  {/* Thought bubbles */}
-                  <div className="absolute -top-4 -right-2 w-3 h-3 bg-white rounded-full opacity-80 float-animation"></div>
-                  <div className="absolute -top-6 right-1 w-2 h-2 bg-white rounded-full opacity-60 float-delayed"></div>
-                </div>
-              </div>
-
-              <h3 className="text-3xl font-bold text-center leading-tight">
-                CRITICAL
-                <br />
-                THINKING
-              </h3>
-            </div>
-
-            {/* Networking Card */}
-            <div
-              className={`bg-white rounded-3xl p-8 shadow-2xl card-hover float-animation relative overflow-hidden ${isVisible ? "slide-in stagger-1" : "opacity-0"}`}
-              style={{ animationDelay: "0.6s" }}
-            >
-              <div className="shimmer-overlay"></div>
-
-              <h3 className="text-3xl font-bold text-slate-900 mb-6 leading-tight">
-                BUILD
-                <br />
-                YOUR
-                <br />
-                NETWORK
-              </h3>
-
-              {/* Network visualization */}
-              <div className="relative h-24">
-                {/* Connection nodes */}
-                {[...Array(8)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="absolute w-3 h-3 bg-blue-400 rounded-full breathe-animation"
-                    style={{
-                      left: `${20 + (i % 3) * 30}%`,
-                      top: `${20 + Math.floor(i / 3) * 25}%`,
-                      animationDelay: `${i * 0.2}s`,
-                    }}
-                  />
-                ))}
-
-                {/* Connection lines */}
-                <svg className="absolute inset-0 w-full h-full">
-                  <line
-                    x1="25%"
-                    y1="30%"
-                    x2="55%"
-                    y2="45%"
-                    stroke="#60a5fa"
-                    strokeWidth="1"
-                    opacity="0.6"
-                    className="animate-pulse"
-                  />
-                  <line
-                    x1="55%"
-                    y1="45%"
-                    x2="85%"
-                    y2="30%"
-                    stroke="#60a5fa"
-                    strokeWidth="1"
-                    opacity="0.6"
-                    className="animate-pulse"
-                  />
-                  <line
-                    x1="25%"
-                    y1="70%"
-                    x2="55%"
-                    y2="45%"
-                    stroke="#60a5fa"
-                    strokeWidth="1"
-                    opacity="0.6"
-                    className="animate-pulse"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          {/* Enhanced Call to Action */}
-          <div className={`text-center mt-16 ${isVisible ? "slide-in" : "opacity-0"}`} style={{ animationDelay: "1s" }}>
-            <div className="pulse-animation">
-              <Link
-                href="/register"
-                className="inline-flex items-center justify-center px-12 py-5 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white font-bold text-xl rounded-full hover:from-yellow-500 hover:via-orange-600 hover:to-red-600 transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:scale-105 relative overflow-hidden group"
-              >
-                <div className="shimmer-overlay"></div>
-                <span className="relative z-10 flex items-center">🌟 Join GMUN 2025 🌟</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
-  )
-}
+                    <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-white rounded-full transform -translate-x-1/2 -translate-\
