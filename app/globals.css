@@ -4,58 +4,60 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
-    --primary: 24 24% 52%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 9%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 24 10% 90%;
-    --muted-foreground: 24 8% 40%;
-    --accent: 30 100% 50%;
-    --accent-foreground: 0 0% 0%;
+    /* ASBMUN Color Scheme: 60% Black, 30% Mocha, 10% Orange */
+    --background: 0 0% 0%; /* Black background (60%) */
+    --foreground: 0 0% 100%; /* White text on black */
+    --card: 24 8% 46%; /* Mocha cards (30%) */
+    --card-foreground: 0 0% 100%; /* White text on mocha */
+    --popover: 0 0% 0%; /* Black popover */
+    --popover-foreground: 0 0% 100%; /* White text */
+    --primary: 0 0% 0%; /* Black primary (60%) */
+    --primary-foreground: 0 0% 100%; /* White text */
+    --secondary: 24 8% 46%; /* Mocha secondary (30%) */
+    --secondary-foreground: 0 0% 100%; /* White text */
+    --muted: 24 8% 46%; /* Mocha muted (30%) */
+    --muted-foreground: 0 0% 100%; /* White text */
+    --accent: 30 100% 50%; /* Orange accent (10%) */
+    --accent-foreground: 0 0% 0%; /* Black text on orange */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 24 10% 80%;
-    --input: 24 10% 80%;
-    --ring: 24 24% 52%;
+    --border: 24 8% 46%; /* Mocha borders */
+    --input: 24 8% 46%; /* Mocha inputs */
+    --ring: 30 100% 50%; /* Orange focus ring */
     --radius: 0.5rem;
-    --chart-1: 24 24% 52%;
-    --chart-2: 30 100% 50%;
-    --chart-3: 0 0% 0%;
-    --chart-4: 24 10% 70%;
-    --chart-5: 24 20% 60%;
+    --chart-1: 0 0% 0%; /* Black */
+    --chart-2: 24 8% 46%; /* Mocha */
+    --chart-3: 30 100% 50%; /* Orange */
+    --chart-4: 0 0% 20%; /* Dark gray */
+    --chart-5: 0 0% 80%; /* Light gray */
   }
 
   .dark {
-    --background: 0 0% 7%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 24 24% 52%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 24 5% 65%;
-    --accent: 30 100% 50%;
-    --accent-foreground: 0 0% 0%;
+    /* Dark mode maintains the same ASBMUN color scheme */
+    --background: 0 0% 0%; /* Black background (60%) */
+    --foreground: 0 0% 100%; /* White text */
+    --card: 24 8% 46%; /* Mocha cards (30%) */
+    --card-foreground: 0 0% 100%; /* White text */
+    --popover: 0 0% 0%; /* Black popover */
+    --popover-foreground: 0 0% 100%; /* White text */
+    --primary: 0 0% 0%; /* Black primary (60%) */
+    --primary-foreground: 0 0% 100%; /* White text */
+    --secondary: 24 8% 46%; /* Mocha secondary (30%) */
+    --secondary-foreground: 0 0% 100%; /* White text */
+    --muted: 24 8% 46%; /* Mocha muted (30%) */
+    --muted-foreground: 0 0% 100%; /* White text */
+    --accent: 30 100% 50%; /* Orange accent (10%) */
+    --accent-foreground: 0 0% 0%; /* Black text on orange */
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 24 24% 52%;
-    --chart-1: 24 24% 52%;
-    --chart-2: 30 100% 50%;
-    --chart-3: 0 0% 100%;
-    --chart-4: 24 10% 70%;
-    --chart-5: 24 20% 60%;
+    --border: 24 8% 46%; /* Mocha borders */
+    --input: 24 8% 46%; /* Mocha inputs */
+    --ring: 30 100% 50%; /* Orange focus ring */
+    --chart-1: 0 0% 0%; /* Black */
+    --chart-2: 24 8% 46%; /* Mocha */
+    --chart-3: 30 100% 50%; /* Orange */
+    --chart-4: 0 0% 20%; /* Dark gray */
+    --chart-5: 0 0% 80%; /* Light gray */
   }
 }
 
@@ -65,6 +67,9 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Ensure consistent black background across the site (60% of color scheme) */
+    background-color: #000000;
+    color: #ffffff;
   }
 }
 
